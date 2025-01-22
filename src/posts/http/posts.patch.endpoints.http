@@ -1,0 +1,15 @@
+PATCH http://localhost:3000/posts
+Content-Type: application/json
+
+{
+    "id" : 19,
+    "title" : "What's new with nestJS",
+    "postType" : "post",
+    "status" : "draft",
+    "content" : "What's new with nestJS and nestJS is now available      in the nestJS project and will be available in the nestJS project and will be available in the nestJS project",
+      "metaOptions": {
+        "metaValue": "{ \"sidebarEnabled\": true, \"footActive\": true }"
+    },
+    "tags" : [2,4,5]
+
+}

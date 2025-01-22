@@ -1,0 +1,11 @@
+##this file will contain all the post requests for the users
+
+POST http://localhost:3000/users
+Content-Type: application/json
+
+{
+    "firstName" : "Ramya",
+    "lastName" : "Lakhani",
+    "email" : "ramya.lakhani@gmail.com",
+    "password" : "Hello@1234"
+}

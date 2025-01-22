@@ -1,0 +1,4 @@
+##this file will contain all the get request 
+
+GET http://localhost:3000/users/
+

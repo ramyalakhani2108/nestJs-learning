@@ -1,0 +1,10 @@
+POST http://localhost:3000/tags
+Content-Type: application/json
+
+{
+  "name": "nest",
+  "slug": "nest-slug",
+  "description": "This is an example tag used for demonstration purposes.",
+  "schema": "{\"key\":\"value\"}",
+  "featuredImageUrl": "https://example.com/featured-image.jpg"
+}
