@@ -1,4 +1,11 @@
-import { Body, Injectable } from '@nestjs/common';
+import {
+  BadRequestException,
+  Body,
+  HttpException,
+  HttpStatus,
+  Injectable,
+  RequestTimeoutException,
+} from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { UsersService } from 'src/users/providers/users.service';
 import { Post } from '../post.entity';
@@ -114,12 +121,51 @@ export class PostsService {
   }
 
   public async updatePost(patchPostDto: PatchPostDto) {
-    // find the tags
-    const tags = await this.tagService.findMultipleTags(patchPostDto.tags);
+    let tags = undefined;
+    let post = undefined;
+    try {
+      // find the tags
+      tags = await this.tagService.findMultipleTags(patchPostDto.tags);
+    } catch (error) {
+      throw new RequestTimeoutException(
+        'Unable to process your request at the moment please try later',
+        {
+          description: 'Error communicating with the database',
+          cause: error,
+        },
+      );
+    }
 
+    if (!tags || tags.length !== patchPostDto.tags.length) {
+      throw new BadRequestException('Please check the tags id you have sent');
+    }
     // find the post
-    const post = await this.postsRepository.findOneBy({ id: patchPostDto.id });
+    try {
+      post = await this.postsRepository.findOneBy({ id: patchPostDto.id });
+    } catch (error) {
+      throw new RequestTimeoutException(
+        'Unable to process your request at the moment please try later',
+        {
+          description: 'Error communicating with the database',
+          cause: error,
+        },
+      );
+    }
 
+    if (!post) {
+      throw new HttpException(
+        {
+          status: HttpStatus.NOT_FOUND,
+          error: 'The post not found',
+          fileName: 'posts.service.ts',
+          lineNumber: 150,
+        },
+        HttpStatus.NOT_FOUND,
+        {
+          cause: console.log('The post not found in the database'),
+        },
+      );
+    }
     // update the properties of the post
     post.title = patchPostDto.title ?? post.title; //if post is sent then update otherwise use the existing one
     post.postType = patchPostDto.postType ?? post.postType;
@@ -135,6 +181,16 @@ export class PostsService {
     post.tags = tags;
 
     // save the updated post and return it
-    return await this.postsRepository.save(post);
+    try {
+      return await this.postsRepository.save(post);
+    } catch (error) {
+      throw new RequestTimeoutException(
+        'Unable to process your request at the moment please try later',
+        {
+          description: 'Error communicating with the database',
+          cause: error,
+        },
+      );
+    }
   }
 }
