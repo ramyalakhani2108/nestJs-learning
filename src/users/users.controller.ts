@@ -63,7 +63,6 @@ export class UsersController {
    * @param page - Current page number (default: 1).
    * @returns List of users.
    */
-  @Get('/:id?')
   @ApiOperation({
     summary: 'Fetches the users',
   })
@@ -85,6 +84,7 @@ export class UsersController {
     description: 'Number of current page',
     example: 1,
   })
+  @Get()
   public getUsers(
     // commented because we can't use dto with single key extracted
     // @Param('id', ParseIntPipe) id: number | undefined,

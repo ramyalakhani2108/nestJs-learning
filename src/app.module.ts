@@ -14,29 +14,44 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 // import { Tag } from './tags/tag.entity';
 import { MetaOptionsModule } from './meta-options/meta-options.module';
 import { TagsModule } from './tags/tags.module';
-import { User } from './users/user.entity';
-import { Tag } from './tags/tag.entity';
-import { MetaOption } from './meta-options/meta-option.entity';
-import { Post } from './posts/post.entity';
+import { ConfigModule, ConfigService } from '@nestjs/config';
+import appConfig from './config/app.config';
+import databaseConfig from './config/database.config';
+import environmentValidation from './config/environment.validation';
+
+// import { User } from './users/user.entity';
+// import { Tag } from './tags/tag.entity';
+// import { MetaOption } from './meta-options/meta-option.entity';
+// import { Post } from './posts/post.entity';
 // import { MetaOption } from './meta-options/meta-option.entity';
 
+const ENV = process.env.NODE_ENV;
 @Module({
   imports: [
+    ConfigModule.forRoot({
+      isGlobal: true,
+      envFilePath: !ENV ? '.env' : `.env.${ENV}`,
+      load: [appConfig, databaseConfig],
+      validationSchema: environmentValidation,
+    }),
     UsersModule,
     PostsModule,
     AuthModule,
     TypeOrmModule.forRootAsync({
-      imports: [],
-      inject: [],
-      useFactory: () => ({
+      imports: [ConfigModule],
+      inject: [ConfigService],
+      useFactory: (configService: ConfigService) => ({
         type: 'postgres',
-        entities: [User, Post, Tag, MetaOption],
-        synchronize: true,
-        port: 5432,
-        username: 'postgres',
-        password: 'root',
-        host: 'localhost',
-        database: 'nestjs-blog',
+        // entities: [User, Post, Tag, MetaOption],
+        synchronize: configService.get<boolean>('database.synchronize'),
+        autoLoadEntities: configService.get<boolean>(
+          'database.autoLoadEntities',
+        ),
+        port: configService.get<number>('database.port'), //database.config
+        username: configService.get<string>('database.user'),
+        password: configService.get<string>('database.password'),
+        host: configService.get<string>('database.host'),
+        database: configService.get<string>('database.name'),
       }),
     }),
     TagsModule,
