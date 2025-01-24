@@ -21,44 +21,44 @@
 <polygon fill="#fb8072" stroke="transparent" points="406,-10 406,-30 426,-30 426,-10 406,-10"/>
 <text text-anchor="start" x="429.73" y="-15.4" font-family="Times-12" font-size="14.00"> &#160;Exports</text>
 <g id="clust1" class="cluster">
-<title>cluster_MetaOptionsModule</title>
-<polygon fill="none" stroke="black" stroke-dasharray="1,5" points="142,-70 142,-268 354,-268 354,-70 142,-70"/>
+<title>cluster_PaginationModule</title>
+<polygon fill="none" stroke="black" stroke-dasharray="1,5" points="146,-70 146,-268 350,-268 350,-70 146,-70"/>
 </g>
 <g id="clust6" class="cluster">
-<title>cluster_MetaOptionsModule_providers</title>
-<polygon fill="none" stroke="black" points="150,-78 150,-130 346,-130 346,-78 150,-78"/>
+<title>cluster_PaginationModule_providers</title>
+<polygon fill="none" stroke="black" points="154,-78 154,-130 342,-130 342,-78 154,-78"/>
 </g>
 <g id="clust4" class="cluster">
-<title>cluster_MetaOptionsModule_exports</title>
-<polygon fill="none" stroke="black" points="173,-208 173,-260 323,-260 323,-208 173,-208"/>
+<title>cluster_PaginationModule_exports</title>
+<polygon fill="none" stroke="black" points="176,-208 176,-260 320,-260 320,-208 176,-208"/>
 </g>
-<!-- MetaOptionsService  -->
+<!-- PaginationProvider  -->
 <g id="node1" class="node">
-<title>MetaOptionsService </title>
-<polygon fill="#fb8072" stroke="black" points="315.08,-252 180.92,-252 180.92,-216 315.08,-216 315.08,-252"/>
-<text text-anchor="middle" x="248" y="-229.8" font-family="Times,serif" font-size="14.00">MetaOptionsService </text>
+<title>PaginationProvider </title>
+<polygon fill="#fb8072" stroke="black" points="311.59,-252 184.41,-252 184.41,-216 311.59,-216 311.59,-252"/>
+<text text-anchor="middle" x="248" y="-229.8" font-family="Times,serif" font-size="14.00">PaginationProvider </text>
 </g>
-<!-- MetaOptionsModule -->
+<!-- PaginationModule -->
 <g id="node2" class="node">
-<title>MetaOptionsModule</title>
-<polygon fill="#8dd3c7" stroke="black" points="314.15,-187 311.15,-191 290.15,-191 287.15,-187 181.85,-187 181.85,-151 314.15,-151 314.15,-187"/>
-<text text-anchor="middle" x="248" y="-164.8" font-family="Times,serif" font-size="14.00">MetaOptionsModule</text>
+<title>PaginationModule</title>
+<polygon fill="#8dd3c7" stroke="black" points="307.93,-187 304.93,-191 283.93,-191 280.93,-187 188.07,-187 188.07,-151 307.93,-151 307.93,-187"/>
+<text text-anchor="middle" x="248" y="-164.8" font-family="Times,serif" font-size="14.00">PaginationModule</text>
 </g>
-<!-- MetaOptionsModule&#45;&gt;MetaOptionsService  -->
+<!-- PaginationModule&#45;&gt;PaginationProvider  -->
 <g id="edge1" class="edge">
-<title>MetaOptionsModule&#45;&gt;MetaOptionsService </title>
+<title>PaginationModule&#45;&gt;PaginationProvider </title>
 <path fill="none" stroke="black" stroke-dasharray="5,2" d="M248,-187.11C248,-187.11 248,-205.99 248,-205.99"/>
 <polygon fill="black" stroke="black" points="244.5,-205.99 248,-215.99 251.5,-205.99 244.5,-205.99"/>
 </g>
-<!-- MetaOptionsService -->
+<!-- PaginationProvider -->
 <g id="node3" class="node">
-<title>MetaOptionsService</title>
-<ellipse fill="#fdb462" stroke="black" cx="248" cy="-104" rx="90.33" ry="18"/>
-<text text-anchor="middle" x="248" y="-99.8" font-family="Times,serif" font-size="14.00">MetaOptionsService</text>
+<title>PaginationProvider</title>
+<ellipse fill="#fdb462" stroke="black" cx="248" cy="-104" rx="85.69" ry="18"/>
+<text text-anchor="middle" x="248" y="-99.8" font-family="Times,serif" font-size="14.00">PaginationProvider</text>
 </g>
-<!-- MetaOptionsService&#45;&gt;MetaOptionsModule -->
+<!-- PaginationProvider&#45;&gt;PaginationModule -->
 <g id="edge2" class="edge">
-<title>MetaOptionsService&#45;&gt;MetaOptionsModule</title>
+<title>PaginationProvider&#45;&gt;PaginationModule</title>
 <path fill="none" stroke="black" d="M248,-122.11C248,-122.11 248,-140.99 248,-140.99"/>
 <polygon fill="black" stroke="black" points="244.5,-140.99 248,-150.99 251.5,-140.99 244.5,-140.99"/>
 </g>

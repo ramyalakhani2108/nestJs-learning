@@ -86,16 +86,19 @@
                    <compodoc-menu mode="normal"></compodoc-menu>
                </div>
                <!-- START CONTENT -->
-               <div class="content controller">
+               <div class="content injectable">
                    <div class="content-data">
 
 
 
 
 
+
+
+
 <ol class="breadcrumb">
-  <li class="breadcrumb-item">Controllers</li>
-  <li class="breadcrumb-item" >TagsController</li>
+  <li class="breadcrumb-item">Injectables</li>
+  <li class="breadcrumb-item" >PaginationProvider</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -119,16 +122,8 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>src/tags/tags.controller.ts</code>
+            <code>src/common/pagination/providers/pagination.provider.ts</code>
         </p>
-
-            <p class="comment">
-                <h3>Prefix</h3>
-            </p>
-            <p class="comment">
-                <code>tags</code>
-            </p>
-
 
 
 
@@ -148,21 +143,9 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                    <span class="modifier"></span>
-                                    <span class="modifier"></span>
-                                    <span class="modifier"></span>
                                     <span class="modifier">Public</span>
-                                <a href="#createTag" >createTag</a>
-                            </li>
-                            <li>
-                                    <span class="modifier"></span>
-                                    <span class="modifier">Public</span>
-                                <a href="#deleteTags" >deleteTags</a>
-                            </li>
-                            <li>
-                                    <span class="modifier"></span>
-                                    <span class="modifier">Public</span>
-                                <a href="#softDeleteTags" >softDeleteTags</a>
+                                    <span class="modifier">Async</span>
+                                <a href="#paginationQuery" >paginationQuery</a>
                             </li>
                         </ul>
                     </td>
@@ -176,6 +159,55 @@
     </table>
 </section>
 
+            <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(request: Request)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="9" class="link-to-prism">src/common/pagination/providers/pagination.provider.ts:9</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>request</td>
+                                                  
+                                                        <td>
+                                                                    <code>Request</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
             <section data-compodoc="block-methods">
     
     <h3 id="methods">
@@ -185,39 +217,38 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="createTag"></a>
+                    <a name="paginationQuery"></a>
                     <span class="name">
-                            <span class="modifier"></span>
-                            <span class="modifier"></span>
-                            <span class="modifier"></span>
                             <span class="modifier">Public</span>
-                        <span ><b>createTag</b></span>
-                        <a href="#createTag"><span class="icon ion-ios-link"></span></a>
+                            <span class="modifier">Async</span>
+                        <span ><b>paginationQuery</b></span>
+                        <a href="#paginationQuery"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
                         <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>createTag(createTagsDto: <a href="../classes/CreateTagsDto.html" target="_self">CreateTagsDto</a>)</code>
+                    <code>paginationQuery(paginationQuery: <a href="../classes/paginationQueryDto.html" target="_self">paginationQueryDto</a>, repository: Repository<T>)</code>
                 </td>
             </tr>
 
-            <tr>
-                <td class="col-md-4">
-                    <b>Decorators : </b>
-                    <br />
-                    <code>@ApiOperation({summary: &#x27;Create an tag for a post&#x27;})<br />@ApiResponse({status: 200, description: &#x27;Your tag has been created successfully&#x27;})<br />@Post()<br /></code>
-                </td>
-            </tr>
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="25"
-                                    class="link-to-prism">src/tags/tags.controller.ts:25</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="17"
+                                    class="link-to-prism">src/common/pagination/providers/pagination.provider.ts:17</a></div>
                         </td>
                     </tr>
 
+                    <tr>
+                        <td class="col-md-4">
+                            <b>Type parameters :</b>
+                            <ul class="type-parameters">
+                                    <li>T</li>
+                            </ul>
+                        </td>
+                    </tr>
 
             <tr>
                 <td class="col-md-4">
@@ -235,9 +266,21 @@
                                     </thead>
                                     <tbody>
                                         <tr>
-                                                <td>createTagsDto</td>
+                                                <td>paginationQuery</td>
                                             <td>
-                                                            <code><a href="../classes/CreateTagsDto.html" target="_self" >CreateTagsDto</a></code>
+                                                            <code><a href="../classes/paginationQueryDto.html" target="_self" >paginationQueryDto</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>repository</td>
+                                            <td>
+                                                        <code>Repository&lt;T&gt;</code>
                                             </td>
 
                                             <td>
@@ -250,7 +293,7 @@
                                 </table>
                             </div>
                         <div class="io-description">
-                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                            <b>Returns : </b>        <code><a href="../interfaces/Paginated.html" target="_self" >Promise&lt;Paginated&lt;T&gt;&gt;</a></code>
 
                         </div>
                             <div class="io-description">
@@ -260,209 +303,87 @@
             </tr>
         </tbody>
     </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="deleteTags"></a>
-                    <span class="name">
-                            <span class="modifier"></span>
-                            <span class="modifier">Public</span>
-                        <span ><b>deleteTags</b></span>
-                        <a href="#deleteTags"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                        <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>deleteTags(id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
-                </td>
-            </tr>
+</section>
 
-            <tr>
-                <td class="col-md-4">
-                    <b>Decorators : </b>
-                    <br />
-                    <code>@Delete()<br /></code>
-                </td>
-            </tr>
-
-                    <tr>
-                        <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="30"
-                                    class="link-to-prism">src/tags/tags.controller.ts:30</a></div>
-                        </td>
-                    </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                            <div class="io-description">
-                                <b>Parameters :</b>
-                                
-                                <table class="params">
-                                    <thead>
-                                        <tr>
-                                            <td>Name</td>
-                                                <td>Type</td>
-                                            <td>Optional</td>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                                <td>id</td>
-                                            <td>
-                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
-                                            </td>
-
-                                            <td>
-                                                    No
-                                            </td>
-
-
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        <div class="io-description">
-                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
-
-                        </div>
-                            <div class="io-description">
-                                
-                            </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="softDeleteTags"></a>
-                    <span class="name">
-                            <span class="modifier"></span>
-                            <span class="modifier">Public</span>
-                        <span ><b>softDeleteTags</b></span>
-                        <a href="#softDeleteTags"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                        <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>softDeleteTags(id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
-                </td>
-            </tr>
-
-            <tr>
-                <td class="col-md-4">
-                    <b>Decorators : </b>
-                    <br />
-                    <code>@Delete(&#x27;soft-delete&#x27;)<br /></code>
-                </td>
-            </tr>
-
-                    <tr>
-                        <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="36"
-                                    class="link-to-prism">src/tags/tags.controller.ts:36</a></div>
-                        </td>
-                    </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                            <div class="io-description">
-                                <b>Parameters :</b>
-                                
-                                <table class="params">
-                                    <thead>
-                                        <tr>
-                                            <td>Name</td>
-                                                <td>Type</td>
-                                            <td>Optional</td>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                                <td>id</td>
-                                            <td>
-                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
-                                            </td>
-
-                                            <td>
-                                                    No
-                                            </td>
-
-
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        <div class="io-description">
-                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
-
-                        </div>
-                            <div class="io-description">
-                                
-                            </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-</section>    </div>
+    </div>
 
 
     <div class="tab-pane fade  tab-source-code" id="source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {
-  Body,
-  Controller,
-  Delete,
-  ParseIntPipe,
-  Post,
-  Query,
-} from &#x27;@nestjs/common&#x27;;
-import { ApiOperation, ApiResponse, ApiTags } from &#x27;@nestjs/swagger&#x27;;
-import { CreateTagsDto } from &#x27;./dtos/create-tags.dto&#x27;;
-import { TagsService } from &#x27;./providers/tags.service&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Inject, Injectable } from &#x27;@nestjs/common&#x27;;
+import { paginationQueryDto } from &#x27;../dto/pagination-query.dto&#x27;;
+import { ObjectLiteral, Repository } from &#x27;typeorm&#x27;;
+import { REQUEST } from &#x27;@nestjs/core&#x27;;
+import { Request } from &#x27;express&#x27;;
+import { Paginated } from &#x27;../interfaces/paginated.interface&#x27;;
 
-@Controller(&#x27;tags&#x27;)
-@ApiTags(&#x27;Tags&#x27;)
-export class TagsController {
-  constructor(private readonly tagsService: TagsService) {}
-  @ApiOperation({
-    summary: &#x27;Create an tag for a post&#x27;,
-  })
-  @ApiResponse({
-    status: 200,
-    description: &#x27;Your tag has been created successfully&#x27;,
-  })
-  @Post()
-  public createTag(@Body() createTagsDto: CreateTagsDto) {
-    return this.tagsService.createTags(createTagsDto);
-  }
+@Injectable()
+export class PaginationProvider {
+  constructor(
+    /**
+     * Injecting request
+     */
+    @Inject(REQUEST)
+    private request: Request,
+  ) {}
+  public async paginationQuery&lt;T extends ObjectLiteral&gt;(
+    paginationQuery: paginationQueryDto,
+    repository: Repository&lt;T&gt;,
+  ): Promise&lt;Paginated&lt;T&gt;&gt; {
+    const results &#x3D; await repository.find({
+      relations: {
+        // metaOptions: true,
+        // author: true,
+        // tags: true,
+      }, //if we just want to get it for post then define relations or if want to make it globally do eager:true under cascade:true in dto
+      skip: (paginationQuery.page - 1) * paginationQuery.limit, //skip number of values
+      take: paginationQuery.limit,
+    });
 
-  @Delete()
-  public deleteTags(@Query(&#x27;id&#x27;, ParseIntPipe) id: number) {
-    return this.tagsService.deleteTags(id);
-  }
+    /**
+     * Create url for pagination
+     */
+    const baseUrl &#x3D;
+      this.request.protocol + &#x27;://&#x27; + this.request.headers.host + &#x27;/&#x27;;
 
-  // /tags/soft-delete
-  @Delete(&#x27;soft-delete&#x27;)
-  public softDeleteTags(@Query(&#x27;id&#x27;, ParseIntPipe) id: number) {
-    return this.tagsService.softDelete(id);
+    const newUrl &#x3D; new URL(this.request.url, baseUrl);
+
+    /**
+     * cacluating the page numbers
+     */
+
+    const totalItems &#x3D; await repository.count(); //totla number of items
+    const totalPages &#x3D; Math.ceil(totalItems / paginationQuery.limit);
+    const nextPage &#x3D;
+      paginationQuery &#x3D;&#x3D; totalPages
+        ? paginationQuery.page
+        : paginationQuery.page + 1;
+    const prevPage &#x3D;
+      paginationQuery.page &#x3D;&#x3D; 1
+        ? paginationQuery.page
+        : paginationQuery.page - 1;
+
+    const finalRes: Paginated&lt;T&gt; &#x3D; {
+      data: results,
+      meta: {
+        itemsPerPage: paginationQuery.limit,
+        totalItems: totalPages,
+        currentPage: paginationQuery.page,
+        totalPages: totalPages,
+      },
+      links: {
+        first: &#x60;${newUrl.origin}${newUrl.pathname}?limit&#x3D;${paginationQuery.limit}page&#x3D;1&#x60;,
+        last: &#x60;${newUrl.origin}${newUrl.pathname}?limit&#x3D;${paginationQuery.limit}page&#x3D;${totalPages}&#x60;,
+        next: &#x60;${newUrl.origin}${newUrl.pathname}?limit&#x3D;${paginationQuery.limit}page&#x3D;${nextPage}&#x60;,
+        prev: &#x60;${newUrl.origin}${newUrl.pathname}?limit&#x3D;${paginationQuery.limit}page&#x3D;${prevPage}&#x60;,
+      },
+    };
+    return finalRes;
   }
 }
 </code></pre>
     </div>
+
 </div>
-
-
-
 
 
 
@@ -501,8 +422,8 @@ export class TagsController {
 
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
-            var COMPODOC_CURRENT_PAGE_CONTEXT = 'controller';
-            var COMPODOC_CURRENT_PAGE_URL = 'TagsController.html';
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'injectable';
+            var COMPODOC_CURRENT_PAGE_URL = 'PaginationProvider.html';
             var MAX_SEARCH_RESULTS = 15;
        </script>
 

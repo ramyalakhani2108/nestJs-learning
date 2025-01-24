@@ -22,6 +22,7 @@ import environmentValidation from './config/environment.validation';
 // import { User } from './users/user.entity';
 // import { Tag } from './tags/tag.entity';
 // import { MetaOption } from './meta-options/meta-option.entity';
+import { PaginationModule } from './common/pagination/pagination.module';
 // import { Post } from './posts/post.entity';
 // import { MetaOption } from './meta-options/meta-option.entity';
 
@@ -56,6 +57,7 @@ const ENV = process.env.NODE_ENV;
     }),
     TagsModule,
     MetaOptionsModule,
+    PaginationModule,
   ],
   controllers: [AppController],
   providers: [AppService],

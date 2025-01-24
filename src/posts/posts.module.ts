@@ -7,6 +7,7 @@ import { Post } from './post.entity';
 import { MetaOptionsModule } from 'src/meta-options/meta-options.module';
 import { MetaOption } from 'src/meta-options/meta-option.entity';
 import { TagsModule } from 'src/tags/tags.module';
+import { PaginationModule } from 'src/common/pagination/pagination.module';
 
 @Module({
   controllers: [PostsController],
@@ -16,6 +17,7 @@ import { TagsModule } from 'src/tags/tags.module';
     TagsModule,
     TypeOrmModule.forFeature([Post, MetaOption]),
     MetaOptionsModule,
+    PaginationModule,
   ], //we can only import modules but the things imported with the modules are explicitly exported by the module
 })
 export class PostsModule {}

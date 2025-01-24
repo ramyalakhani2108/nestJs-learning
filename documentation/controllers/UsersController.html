@@ -165,6 +165,11 @@
                             </li>
                             <li>
                                     <span class="modifier"></span>
+                                    <span class="modifier">Public</span>
+                                <a href="#createUsers" >createUsers</a>
+                            </li>
+                            <li>
+                                    <span class="modifier"></span>
                                     <span class="modifier"></span>
                                     <span class="modifier"></span>
                                     <span class="modifier"></span>
@@ -224,8 +229,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="109"
-                                    class="link-to-prism">src/users/users.controller.ts:109</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="111"
+                                    class="link-to-prism">src/users/users.controller.ts:111</a></div>
                         </td>
                     </tr>
 
@@ -288,6 +293,83 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
+                    <a name="createUsers"></a>
+                    <span class="name">
+                            <span class="modifier"></span>
+                            <span class="modifier">Public</span>
+                        <span ><b>createUsers</b></span>
+                        <a href="#createUsers"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>createUsers(createManyUsersDto: <a href="../classes/CreateManyUsersDto.html" target="_self">CreateManyUsersDto</a>)</code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <b>Decorators : </b>
+                    <br />
+                    <code>@Post(&#x27;create-many&#x27;)<br /></code>
+                </td>
+            </tr>
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="144"
+                                    class="link-to-prism">src/users/users.controller.ts:144</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>createManyUsersDto</td>
+                                            <td>
+                                                            <code><a href="../classes/CreateManyUsersDto.html" target="_self" >CreateManyUsersDto</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
                     <a name="getUsers"></a>
                     <span class="name">
                             <span class="modifier"></span>
@@ -312,14 +394,14 @@
                 <td class="col-md-4">
                     <b>Decorators : </b>
                     <br />
-                    <code>@Get(&#x27;/:id?&#x27;)<br />@ApiOperation({summary: &#x27;Fetches the users&#x27;})<br />@ApiResponse({status: 200, description: &#x27;User fetched succesfully&#x27;})<br />@ApiQuery({name: &#x27;limit&#x27;, type: &#x27;number&#x27;, required: false, description: &#x27;Limit the number of results&#x27;, example: 10})<br />@ApiQuery({name: &#x27;page&#x27;, type: &#x27;number&#x27;, required: false, description: &#x27;Number of current page&#x27;, example: 1})<br /></code>
+                    <code>@ApiOperation({summary: &#x27;Fetches the users&#x27;})<br />@ApiResponse({status: 200, description: &#x27;User fetched succesfully&#x27;})<br />@ApiQuery({name: &#x27;limit&#x27;, type: &#x27;number&#x27;, required: false, description: &#x27;Limit the number of results&#x27;, example: 10})<br />@ApiQuery({name: &#x27;page&#x27;, type: &#x27;number&#x27;, required: false, description: &#x27;Number of current page&#x27;, example: 1})<br />@Get()<br /></code>
                 </td>
             </tr>
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="88"
-                                    class="link-to-prism">src/users/users.controller.ts:88</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="89"
+                                    class="link-to-prism">src/users/users.controller.ts:89</a></div>
                         </td>
                     </tr>
 
@@ -444,8 +526,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="137"
-                                    class="link-to-prism">src/users/users.controller.ts:137</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="139"
+                                    class="link-to-prism">src/users/users.controller.ts:139</a></div>
                         </td>
                     </tr>
 
@@ -527,6 +609,7 @@ import { GetUsersParamDto } from &#x27;./dtos/get-users-param.dto&#x27;;
 import { PatchUserDto } from &#x27;./dtos/patch-user.dto&#x27;;
 import { UsersService } from &#x27;./providers/users.service&#x27;;
 import { ApiOperation, ApiQuery, ApiResponse, ApiTags } from &#x27;@nestjs/swagger&#x27;;
+import { CreateManyUsersDto } from &#x27;./dtos/create-many-users.dto&#x27;;
 // import { Req } from &#x27;@nestjs/common&#x27;;
 // import {Request} from &#x27;express&#x27;;
 
@@ -573,7 +656,6 @@ export class UsersController {
    * @param page - Current page number (default: 1).
    * @returns List of users.
    */
-  @Get(&#x27;/:id?&#x27;)
   @ApiOperation({
     summary: &#x27;Fetches the users&#x27;,
   })
@@ -595,6 +677,7 @@ export class UsersController {
     description: &#x27;Number of current page&#x27;,
     example: 1,
   })
+  @Get()
   public getUsers(
     // commented because we can&#x27;t use dto with single key extracted
     // @Param(&#x27;id&#x27;, ParseIntPipe) id: number | undefined,
@@ -602,7 +685,8 @@ export class UsersController {
     @Query(&#x27;limit&#x27;, new DefaultValuePipe(10), ParseIntPipe) limit: number,
     @Query(&#x27;page&#x27;, new DefaultValuePipe(1), ParseIntPipe) page: number,
   ) {
-    return this.usersService.findAll(getUsersParamDto, limit, page);
+    return this.usersService.findAll(); //getUsersParamDto, ///limit, // page
+
     // console.log(getUsersParamDto);
     // console.log(limit);
     // console.log(page);
@@ -646,6 +730,19 @@ export class UsersController {
   @Patch()
   public patchUser(@Body() patchUserDto: PatchUserDto) {
     return patchUserDto;
+  }
+
+  @Post(&#x27;create-many&#x27;) // this is the decorator handling POST requests
+  public createUsers(
+    // @Body(new ValidationPipe()) createUserDto: CreateUserDto, //here we can use our dto class to
+    @Body() createManyUsersDto: CreateManyUsersDto, //here we can use our dto class to without using validaiton PIPE because imported into the main.ts
+    // @Headers() headers: any,
+    // @Ip() ip: any,
+  ) {
+    return this.usersService.createManyUsers(createManyUsersDto);
+    // console.log(headers);
+    // console.log(ip);
+    // return &#x27;You have sent a post request to users endpoint&#x27;;
   }
 }
 </code></pre>

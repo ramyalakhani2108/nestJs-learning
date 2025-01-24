@@ -98,7 +98,7 @@
 
 <ol class="breadcrumb">
   <li class="breadcrumb-item">Injectables</li>
-  <li class="breadcrumb-item" >AuthService</li>
+  <li class="breadcrumb-item" >UsersCreateManyProvider</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -122,18 +122,10 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>src/auth/providers/auth.service.ts</code>
+            <code>src/users/providers/users-create-many.provider.ts</code>
         </p>
 
 
-            <p class="comment">
-                <h3>Description</h3>
-            </p>
-            <p class="comment">
-                <p>Service responsible for authentication-related operations.</p>
-<p>This service handles operations such as logging in and checking authentication status.</p>
-
-            </p>
 
 
 
@@ -152,11 +144,8 @@
                         <ul class="index-list">
                             <li>
                                     <span class="modifier">Public</span>
-                                <a href="#isAuth" >isAuth</a>
-                            </li>
-                            <li>
-                                    <span class="modifier">Public</span>
-                                <a href="#login" >login</a>
+                                    <span class="modifier">Async</span>
+                                <a href="#createManyUsers" >createManyUsers</a>
                             </li>
                         </ul>
                     </td>
@@ -176,19 +165,17 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(userService: <a href="../injectables/UsersService.html" target="_self">UsersService</a>)</code>
+<code>constructor(dataSource: DataSource)</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="10" class="link-to-prism">src/auth/providers/auth.service.ts:10</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">src/users/providers/users-create-many.provider.ts:11</a></div>
                             </td>
                         </tr>
 
                 <tr>
                     <td class="col-md-4">
-                            <div class="io-description"><p>The <code>forwardRef</code> and <code>Inject</code> decorators are used to resolve circular dependency issues between <code>AuthService</code> and <code>UsersService</code>.</p>
-</div>
                             <div>
                                     <b>Parameters :</b>
                                     <table class="params">
@@ -197,26 +184,20 @@
                                                 <td>Name</td>
                                                     <td>Type</td>
                                                 <td>Optional</td>
-                                                    <td>Description</td>
                                             </tr>
                                         </thead>
                                         <tbody>
                                                 <tr>
-                                                        <td>userService</td>
+                                                        <td>dataSource</td>
                                                   
                                                         <td>
-                                                                        <code><a href="../injectables/UsersService.html" target="_self" >UsersService</a></code>
+                                                                    <code>DataSource</code>
                                                         </td>
                                                   
                                                     <td>
                                                             No
                                                     </td>
                                                     
-                                                        <td>
-                                                                <p>The injected <code>UsersService</code> which is used to interact with the user data.
-The <code>forwardRef</code> and <code>Inject</code> decorators are used to resolve circular dependency issues between <code>AuthService</code> and <code>UsersService</code>.</p>
-
-                                                        </td>
                                                 </tr>
                                         </tbody>
                                     </table>
@@ -236,79 +217,33 @@ The <code>forwardRef</code> and <code>Inject</code> decorators are used to resol
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="isAuth"></a>
+                    <a name="createManyUsers"></a>
                     <span class="name">
                             <span class="modifier">Public</span>
-                        <span ><b>isAuth</b></span>
-                        <a href="#isAuth"><span class="icon ion-ios-link"></span></a>
+                            <span class="modifier">Async</span>
+                        <span ><b>createManyUsers</b></span>
+                        <a href="#createManyUsers"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
                         <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>isAuth()</code>
+                    <code>createManyUsers(createManyUsersDto: <a href="../classes/CreateManyUsersDto.html" target="_self">CreateManyUsersDto</a>)</code>
                 </td>
             </tr>
 
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="37"
-                                    class="link-to-prism">src/auth/providers/auth.service.ts:37</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="13"
+                                    class="link-to-prism">src/users/providers/users-create-many.provider.ts:13</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Simulates checking if a user is authenticated.</p>
-</div>
-
-                        <div class="io-description">
-                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
-
-                        </div>
-                            <div class="io-description">
-                                <p>A boolean indicating whether the user is authenticated. (Currently always returns true, will be updated with actual logic).</p>
-
-                            </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="login"></a>
-                    <span class="name">
-                            <span class="modifier">Public</span>
-                        <span ><b>login</b></span>
-                        <a href="#login"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                        <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>login(email: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, password: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
-                </td>
-            </tr>
-
-
-                    <tr>
-                        <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="27"
-                                    class="link-to-prism">src/auth/providers/auth.service.ts:27</a></div>
-                        </td>
-                    </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                        <div class="io-description"><p>Simulates a login process and generates a token.</p>
-</div>
 
                             <div class="io-description">
                                 <b>Parameters :</b>
@@ -319,14 +254,13 @@ The <code>forwardRef</code> and <code>Inject</code> decorators are used to resol
                                             <td>Name</td>
                                                 <td>Type</td>
                                             <td>Optional</td>
-                                                <td>Description</td>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <tr>
-                                                <td>email</td>
+                                                <td>createManyUsersDto</td>
                                             <td>
-                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                                            <code><a href="../classes/CreateManyUsersDto.html" target="_self" >CreateManyUsersDto</a></code>
                                             </td>
 
                                             <td>
@@ -334,37 +268,16 @@ The <code>forwardRef</code> and <code>Inject</code> decorators are used to resol
                                             </td>
 
 
-                                            <td>
-                                                    <p>User&#39;s email address.</p>
-
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                                <td>password</td>
-                                            <td>
-                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-                                            </td>
-
-                                            <td>
-                                                    No
-                                            </td>
-
-
-                                            <td>
-                                                    <p>User&#39;s password.</p>
-
-                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
                             </div>
                         <div class="io-description">
-                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+                            <b>Returns : </b>    <code>unknown</code>
 
                         </div>
                             <div class="io-description">
-                                <p>A token (for now, it returns a placeholder string).</p>
-
+                                
                             </div>
                 </td>
             </tr>
@@ -376,44 +289,59 @@ The <code>forwardRef</code> and <code>Inject</code> decorators are used to resol
 
 
     <div class="tab-pane fade  tab-source-code" id="source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { forwardRef, Inject, Injectable } from &#x27;@nestjs/common&#x27;;
-import { UsersService } from &#x27;src/users/providers/users.service&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {
+  ConflictException,
+  Injectable,
+  RequestTimeoutException,
+} from &#x27;@nestjs/common&#x27;;
+import { User } from &#x27;../user.entity&#x27;;
+import { DataSource } from &#x27;typeorm&#x27;;
+import { CreateManyUsersDto } from &#x27;../dtos/create-many-users.dto&#x27;;
 
-/**
- * Service responsible for authentication-related operations.
- *
- * This service handles operations such as logging in and checking authentication status.
- */
 @Injectable()
-export class AuthService {
-  /**
-   * @param userService The injected &#x60;UsersService&#x60; which is used to interact with the user data.
-   * The &#x60;forwardRef&#x60; and &#x60;Inject&#x60; decorators are used to resolve circular dependency issues between &#x60;AuthService&#x60; and &#x60;UsersService&#x60;.
-   */
-  constructor(
-    @Inject(forwardRef(() &#x3D;&gt; UsersService))
-    private readonly userService: UsersService,
-  ) {}
+export class UsersCreateManyProvider {
+  constructor(private readonly dataSource: DataSource) {}
+  public async createManyUsers(createManyUsersDto: CreateManyUsersDto) {
+    const newUsers: User[] &#x3D; [];
+    //need a query runner instance
+    const queryRunner &#x3D; this.dataSource.createQueryRunner();
+    try {
+      //connect instance with our data source
+      await queryRunner.connect();
+      //start the transaction
+      await queryRunner.startTransaction();
+    } catch (error) {
+      console.log(error);
+      throw new RequestTimeoutException(&#x27;Could not connect to database&#x27;);
+    }
+    //operations
+    try {
+      for (const user of createManyUsersDto.users) {
+        const newUser &#x3D; await queryRunner.manager.create(User, user);
+        const result &#x3D; await queryRunner.manager.save(newUser);
+        newUsers.push(result);
+      }
+      //if successfull commit it
+      await queryRunner.commitTransaction();
+    } catch (error) {
+      //if unsuccessfull rollback it
 
-  /**
-   * Simulates a login process and generates a token.
-   *
-   * @param email User&#x27;s email address.
-   * @param password User&#x27;s password.
-   * @returns A token (for now, it returns a placeholder string).
-   */
-  public login(email: string, password: string) {
-    // const user &#x3D; this.userService.findOneById(&#x27;1234&#x27;);
-    // return &#x27;token&#x27;;
-  }
-
-  /**
-   * Simulates checking if a user is authenticated.
-   *
-   * @returns A boolean indicating whether the user is authenticated. (Currently always returns true, will be updated with actual logic).
-   */
-  public isAuth() {
-    return true; // this will be replaced with actual logic to check authentication
+      console.log(error);
+      await queryRunner.rollbackTransaction();
+      throw new ConflictException(&#x27;Could not complete the transaction.&#x27;, {
+        description: String(error),
+      });
+    } finally {
+      //release the connection
+      try {
+        await queryRunner.release();
+      } catch (e) {
+        throw new RequestTimeoutException(&#x27;Could not release connection&#x27;, {
+          description: String(e),
+        });
+      }
+      return newUsers;
+    }
   }
 }
 </code></pre>
@@ -459,7 +387,7 @@ export class AuthService {
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
             var COMPODOC_CURRENT_PAGE_CONTEXT = 'injectable';
-            var COMPODOC_CURRENT_PAGE_URL = 'AuthService.html';
+            var COMPODOC_CURRENT_PAGE_URL = 'UsersCreateManyProvider.html';
             var MAX_SEARCH_RESULTS = 15;
        </script>
 

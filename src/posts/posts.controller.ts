@@ -13,6 +13,7 @@ import { PostsService } from './providers/posts.service';
 import { ApiOperation, ApiResponse, ApiTags } from '@nestjs/swagger';
 import { CreatePostDto } from './dots/create-post.dto';
 import { PatchPostDto } from './dots/patch-post.dto';
+import { getPostsDto } from './dots/get-posts.dto';
 /**
  * Post controller for managin posts business operations
  * @controller
@@ -29,8 +30,11 @@ export class PostsController {
    * Method to get posts of a speciif user or randomly all
    */
   @Get('/:userId?')
-  public getPosts(@Param('userId') userId: string | undefined) {
-    return this.postsService.findAll();
+  public getPosts(
+    @Param('userId') userId: string,
+    @Query() postQuery: getPostsDto,
+  ) {
+    return this.postsService.findAll(userId, postQuery);
   }
 
   /**
@@ -48,6 +52,7 @@ export class PostsController {
   })
   @Post()
   public createPost(@Body() createPostDto: CreatePostDto) {
+    console.log(createPostDto);
     return this.postsService.createPost(createPostDto);
   }
 
