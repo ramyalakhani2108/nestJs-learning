@@ -17,6 +17,7 @@ import { GetUsersParamDto } from './dtos/get-users-param.dto';
 import { PatchUserDto } from './dtos/patch-user.dto';
 import { UsersService } from './providers/users.service';
 import { ApiOperation, ApiQuery, ApiResponse, ApiTags } from '@nestjs/swagger';
+import { CreateManyUsersDto } from './dtos/create-many-users.dto';
 // import { Req } from '@nestjs/common';
 // import {Request} from 'express';
 
@@ -136,5 +137,18 @@ export class UsersController {
   @Patch()
   public patchUser(@Body() patchUserDto: PatchUserDto) {
     return patchUserDto;
+  }
+
+  @Post('create-many') // this is the decorator handling POST requests
+  public createUsers(
+    // @Body(new ValidationPipe()) createUserDto: CreateUserDto, //here we can use our dto class to
+    @Body() createManyUsersDto: CreateManyUsersDto, //here we can use our dto class to without using validaiton PIPE because imported into the main.ts
+    // @Headers() headers: any,
+    // @Ip() ip: any,
+  ) {
+    return this.usersService.createManyUsers(createManyUsersDto);
+    // console.log(headers);
+    // console.log(ip);
+    // return 'You have sent a post request to users endpoint';
   }
 }

@@ -9,12 +9,14 @@ import {
 } from '@nestjs/common';
 import { GetUsersParamDto } from '../dtos/get-users-param.dto';
 import { AuthService } from 'src/auth/providers/auth.service';
-import { Repository } from 'typeorm';
+import { DataSource, Repository } from 'typeorm';
 import { User } from '../user.entity';
 import { InjectRepository } from '@nestjs/typeorm';
 import { CreateUserDto } from '../dtos/create-user.dto';
 import { ConfigType } from '@nestjs/config';
 import profileConfig from '../config/profile.config';
+import { UsersCreateManyProvider } from './users-create-many.provider';
+import { CreateManyUsersDto } from '../dtos/create-many-users.dto';
 
 /**
  * Class to connect users table and perform business operations
@@ -33,6 +35,10 @@ export class UsersService {
 
     @Inject(profileConfig.KEY) //need to remember this KEY word
     private readonly profileConfiguration: ConfigType<typeof profileConfig>,
+
+    private readonly dataSource: DataSource,
+
+    private readonly usersCreateManyProvider: UsersCreateManyProvider,
   ) {}
 
   /**
@@ -126,5 +132,11 @@ export class UsersService {
       throw new BadRequestException('User not found with given id');
     }
     return user;
+  }
+
+  public async createManyUsers(createManyUsersDto: CreateManyUsersDto) {
+    return await this.usersCreateManyProvider.createManyUsers(
+      createManyUsersDto,
+    );
   }
 }
