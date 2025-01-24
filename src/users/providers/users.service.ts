@@ -7,7 +7,7 @@ import {
   Injectable,
   RequestTimeoutException,
 } from '@nestjs/common';
-import { GetUsersParamDto } from '../dtos/get-users-param.dto';
+// import { GetUsersParamDto } from '../dtos/get-users-param.dto';
 import { AuthService } from 'src/auth/providers/auth.service';
 import { DataSource, Repository } from 'typeorm';
 import { User } from '../user.entity';
@@ -88,11 +88,8 @@ export class UsersService {
   /**
    *  This method is for call the all users from the database
    */
-  public findAll(
-    getUsersParamDto: GetUsersParamDto,
-    limit: number,
-    page: number,
-  ) {
+  public findAll() {
+    // page: number, // limit: number, // getUsersParamDto: GetUsersParamDto,
     throw new HttpException(
       {
         status: HttpStatus.MOVED_PERMANENTLY,

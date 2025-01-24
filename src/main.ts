@@ -15,6 +15,9 @@ async function bootstrap() {
       whitelist: true, // to prevent accepting any other params which is not specified into dots and it doesn't stop the req,
       forbidNonWhitelisted: true, //stops processing further if property is not whitelisted
       transform: true, // transforms the object into dto class object
+      transformOptions: {
+        enableImplicitConversion: true, //validation pipe will take care of implicit conversion type so you dont have to write @Type everywhere
+      },
     }),
   );
 

@@ -20,6 +20,7 @@ export class UsersCreateManyProvider {
       //start the transaction
       await queryRunner.startTransaction();
     } catch (error) {
+      console.log(error);
       throw new RequestTimeoutException('Could not connect to database');
     }
     //operations

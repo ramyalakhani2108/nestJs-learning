@@ -93,7 +93,8 @@ export class UsersController {
     @Query('limit', new DefaultValuePipe(10), ParseIntPipe) limit: number,
     @Query('page', new DefaultValuePipe(1), ParseIntPipe) page: number,
   ) {
-    return this.usersService.findAll(getUsersParamDto, limit, page);
+    return this.usersService.findAll(); //getUsersParamDto, ///limit, // page
+
     // console.log(getUsersParamDto);
     // console.log(limit);
     // console.log(page);

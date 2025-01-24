@@ -138,12 +138,12 @@ export class CreatePostDto {
    * @example '2022-01-01T12:00:00Z'
    */
   @ApiPropertyOptional({
-    description: 'This is the date in ISO8601 when the blog post was published',
-    example: '2022-01-01T12:00:00Z',
+    description: 'The date on which the blog post is published',
+    example: '2024-03-16T07:46:32+0000',
   })
-  @IsOptional()
   @IsISO8601()
-  publishedOn?: Date;
+  @IsOptional()
+  publishedOn?: Date | string;
 
   /**
    * Tags for the blog post (optional).
