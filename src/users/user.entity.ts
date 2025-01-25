@@ -35,7 +35,6 @@ export class User {
     length: 96,
     nullable: false,
   })
-  password: string;
   @Exclude()
   password?: string;
 
