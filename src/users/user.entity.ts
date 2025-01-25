@@ -33,7 +33,7 @@ export class User {
   @Column({
     type: 'varchar',
     length: 96,
-    nullable: false,
+    nullable: true,
   })
   @Exclude()
   password?: string;

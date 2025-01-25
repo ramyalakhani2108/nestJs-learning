@@ -2,8 +2,8 @@ import {
   BadRequestException,
   forwardRef,
   HttpException,
-  HttpStatus,
   Inject,
+  HttpStatus,
   Injectable,
   RequestTimeoutException,
 } from '@nestjs/common';
@@ -19,6 +19,9 @@ import { CreateManyUsersDto } from '../dtos/create-many-users.dto';
 import { CreateUserProvider } from './create-user.provider';
 import { CreateUserDto } from '../dtos/create-user.dto';
 import { FindOneUserByEmailProvider } from './find-one-user-by-email.provider';
+import { GoogleIdProvider } from 'src/users/providers/google-id.provider';
+import { CreateGoogleUserProvider } from './create-google-user.provider';
+import { GoogleUser } from '../interfaces/google-user.interface';
 
 /**
  * Class to connect users table and perform business operations
@@ -51,6 +54,16 @@ export class UsersService {
      * injecting create user provider
      */
     private readonly createUserProvider: CreateUserProvider,
+
+    /**
+     * inject findonebygoogleid provider
+     */
+    private readonly findOneByGoogleIdProvider: GoogleIdProvider,
+
+    /**
+     * inject google user provider
+     */
+    private readonly createGoogleUserProvider: CreateGoogleUserProvider,
   ) {}
 
   public async createUser(createUserDto: CreateUserDto) {
@@ -110,5 +123,13 @@ export class UsersService {
 
   public async findOneByEmail(email: string) {
     return await this.findOneByEmailProvider.findUserByEmail(email);
+  }
+
+  public async findOneByGoogleId(googleId: string) {
+    return await this.findOneByGoogleIdProvider.findOneByGoogleId(googleId);
+  }
+
+  public async createGoogleUser(googleUser: GoogleUser) {
+    return await this.createGoogleUserProvider.createGoogleUser(googleUser);
   }
 }
