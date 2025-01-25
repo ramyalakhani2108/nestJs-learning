@@ -6,25 +6,29 @@ Content-Type: application/json
 {
     "firstName" : "Ramya",
     "lastName" : "Lakhani",
-    "email" : "ramya.lakhani.u@gmail.com",
+    "email" : "ramya.lakshani.u@gmail.com",
     "password" : "Hello@1234"
 }
 
+
+
+
 POST http://localhost:3000/users/create-many
 Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjIyLCJlbWFpbCI6InJhbXlhLmxha3NoYW5pLnVAZ21haWwuY29tIiwiaWF0IjoxNzM3NzI2NDczLCJleHAiOjE3Mzc3MzAwNzMsImF1ZCI6ImxvY2FsaG9zdDozMDAwIiwiaXNzIjoibG9jYWxob3N0OjMwMDAifQ.AKh0BYM-dObQZTgyyHaiYOjbCVuNaJCXBLrVFy_W3eg
 
 {
     "users": [
         {
             "firstName" : "Ramya",
-            "lastName" : "Lakhani",
-            "email" : "ramya.lakhani.us@gmail.com",
+            "lastName" : "Lakwhani",
+            "email" : "ramwsya.laksshani.us@gmail.com",
             "password" : "Hello@1234"
         },
         {
             "firstName" : "John",
             "lastName" : "Doe",
-            "email" : "john.doe.u@gmail.com",
+            "email" : "johwwn.dosse.u@gmail.com",
             "password" : "Hsi@5678"
         }
     ]

@@ -10,6 +10,8 @@ import {
   ParseIntPipe,
   DefaultValuePipe,
   Patch,
+  // UseGuards,
+  // SetMetadata,
   // ValidationPipe,
 } from '@nestjs/common';
 import { CreateUserDto } from './dtos/create-user.dto';
@@ -18,6 +20,9 @@ import { PatchUserDto } from './dtos/patch-user.dto';
 import { UsersService } from './providers/users.service';
 import { ApiOperation, ApiQuery, ApiResponse, ApiTags } from '@nestjs/swagger';
 import { CreateManyUsersDto } from './dtos/create-many-users.dto';
+import { AccessTokenGuard } from 'src/auth/guards/access-token/access-token.guard';
+import { Auth } from 'src/auth/decorators/auth.decorator';
+import { AuthType } from 'src/auth/enums/auth-type.enum';
 // import { Req } from '@nestjs/common';
 // import {Request} from 'express';
 
@@ -140,7 +145,10 @@ export class UsersController {
     return patchUserDto;
   }
 
+  // @UseGuards(AccessTokenGuard)
   @Post('create-many') // this is the decorator handling POST requests
+  // @SetMetadata('authType','None') // set metadata would be not good choice 
+  @Auth(AuthType.Bearer)
   public createUsers(
     // @Body(new ValidationPipe()) createUserDto: CreateUserDto, //here we can use our dto class to
     @Body() createManyUsersDto: CreateManyUsersDto, //here we can use our dto class to without using validaiton PIPE because imported into the main.ts

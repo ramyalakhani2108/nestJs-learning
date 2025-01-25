@@ -14,6 +14,8 @@ import { ApiOperation, ApiResponse, ApiTags } from '@nestjs/swagger';
 import { CreatePostDto } from './dots/create-post.dto';
 import { PatchPostDto } from './dots/patch-post.dto';
 import { getPostsDto } from './dots/get-posts.dto';
+import { ActiveUser } from 'src/auth/decorators/active-user.decorator';
+import { ActiveUserData } from 'src/auth/interfaces/active-user-data.interface';
 /**
  * Post controller for managin posts business operations
  * @controller
@@ -51,9 +53,11 @@ export class PostsController {
     type: CreatePostDto,
   })
   @Post()
-  public createPost(@Body() createPostDto: CreatePostDto) {
-    console.log(createPostDto);
-    return this.postsService.createPost(createPostDto);
+  public createPost(
+    @Body() createPostDto: CreatePostDto,
+    @ActiveUser() user: ActiveUserData, //custom decorator to get the value of payload
+  ) {
+    return this.postsService.createPost(createPostDto, user);
   }
 
   /**
