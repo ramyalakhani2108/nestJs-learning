@@ -19,8 +19,7 @@ export class UsersCreateManyProvider {
       await queryRunner.connect();
       //start the transaction
       await queryRunner.startTransaction();
-    } catch (error) {
-      console.log(error);
+    } catch {
       throw new RequestTimeoutException('Could not connect to database');
     }
     //operations
@@ -34,8 +33,6 @@ export class UsersCreateManyProvider {
       await queryRunner.commitTransaction();
     } catch (error) {
       //if unsuccessfull rollback it
-
-      console.log(error);
       await queryRunner.rollbackTransaction();
       throw new ConflictException('Could not complete the transaction.', {
         description: String(error),

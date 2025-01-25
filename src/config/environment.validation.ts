@@ -12,4 +12,8 @@ export default Joi.object({
   DB_SYNC: Joi.boolean().required(),
   DB_AUTO_LOAD: Joi.boolean().required(),
   PROFILE_API_KEY: Joi.string().default('something'),
+  JWT_SECRET: Joi.string().required(),
+  JWT_TOKEN_AUDIENCE: Joi.string().required(),
+  JWT_TOKEN_ISSUER: Joi.string().required(),
+  JWT_ACCESS_TOKEN_TTL: Joi.number().required(),
 });

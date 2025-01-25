@@ -2,7 +2,7 @@
 
 POST http://localhost:3000/posts
 Content-Type: application/json
-
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjIyLCJlbWFpbCI6InJhbXlhLmxha3NoYW5pLnVAZ21haWwuY29tIiwiaWF0IjoxNzM3NzgxMDE2LCJleHAiOjE3Mzc3ODQ2MTYsImF1ZCI6ImxvY2FsaG9zdDozMDAwIiwiaXNzIjoibG9jYWxob3N0OjMwMDAifQ.NG4lxzqj0g7Q2SK4IT5GIAffzfi3lmNN8ZvndKpBQss
 
 {
   "publishedOn": "2018-08-18T00:00:00+1000",

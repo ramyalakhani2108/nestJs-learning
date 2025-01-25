@@ -23,6 +23,11 @@ import environmentValidation from './config/environment.validation';
 // import { Tag } from './tags/tag.entity';
 // import { MetaOption } from './meta-options/meta-option.entity';
 import { PaginationModule } from './common/pagination/pagination.module';
+import { JwtModule } from '@nestjs/jwt';
+import jwtConfig from './auth/config/jwt.config';
+import { APP_GUARD } from '@nestjs/core';
+import { AccessTokenGuard } from './auth/guards/access-token/access-token.guard';
+import { AuthenticationGuard } from './auth/guards/authentication/authentication.guard';
 // import { Post } from './posts/post.entity';
 // import { MetaOption } from './meta-options/meta-option.entity';
 
@@ -58,8 +63,17 @@ const ENV = process.env.NODE_ENV;
     TagsModule,
     MetaOptionsModule,
     PaginationModule,
+    ConfigModule.forFeature(jwtConfig),
+    JwtModule.registerAsync(jwtConfig.asProvider()), //for registering jwt config
   ],
   controllers: [AppController],
-  providers: [AppService],
+  providers: [
+    AppService,
+    {
+      provide: APP_GUARD,
+      useClass: AuthenticationGuard,
+    },
+    AccessTokenGuard,
+  ],
 })
 export class AppModule {}
