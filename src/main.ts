@@ -2,6 +2,7 @@ import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
 import { ValidationPipe } from '@nestjs/common';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
+import { DataResponseInterceptor } from './common/interceptors/data-response/data-response.interceptor';
 
 /**
  * Boostrap functino for the app
@@ -35,6 +36,10 @@ async function bootstrap() {
 
   //allowing cors
   app.enableCors();
+
+  // global interceptors
+  // app.useGlobalInterceptors(new DataResponseInterceptor());
+
   await app.listen(process.env.PORT ?? 3000);
 }
 

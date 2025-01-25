@@ -10,6 +10,8 @@ import {
   ParseIntPipe,
   DefaultValuePipe,
   Patch,
+  UseInterceptors,
+  ClassSerializerInterceptor,
   // UseGuards,
   // SetMetadata,
   // ValidationPipe,
@@ -113,6 +115,8 @@ export class UsersController {
    * @returns Confirmation message.
    */
   @Post() // this is the decorator handling POST requests
+  @Auth(AuthType.None)
+  @UseInterceptors(ClassSerializerInterceptor)
   public createUser(
     // @Body(new ValidationPipe()) createUserDto: CreateUserDto, //here we can use our dto class to
     @Body() createUserDto: CreateUserDto, //here we can use our dto class to without using validaiton PIPE because imported into the main.ts
