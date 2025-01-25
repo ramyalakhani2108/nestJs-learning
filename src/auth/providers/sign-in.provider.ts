@@ -11,7 +11,7 @@ import { HashingProvider } from './hashing.provider';
 import { JwtService } from '@nestjs/jwt';
 import { ConfigType } from '@nestjs/config';
 import jwtConfig from '../config/jwt.config';
-import { ActiveUserData } from '../interfaces/active-user-data.interface';
+import { GenerateTokensProvider } from './generate-tokens.provider';
 
 @Injectable()
 export class SignInProvider {
@@ -26,13 +26,10 @@ export class SignInProvider {
      * Injecting hashing provider
      */
     private readonly hashingProvider: HashingProvider,
-
-    /**injecting jwt service */
-    // @Inject(JwtService)
-    private readonly jwtService: JwtService,
-
-    @Inject(jwtConfig.KEY)
-    private readonly jwtConfigurations: ConfigType<typeof jwtConfig>,
+    /**
+     * inject generateTokens provider
+     */
+    private readonly generateTokensProvider: GenerateTokensProvider,
   ) {}
 
   public async signIn(signInDto: SignInDto) {
@@ -52,22 +49,7 @@ export class SignInProvider {
       }
 
       //sending confirmation
-      const accessToken = await this.jwtService.signAsync(
-        {
-          sub: user.id,
-          email: user.email,
-        } as ActiveUserData,
-        {
-          secret: this.jwtConfigurations.secret,
-          audience: this.jwtConfigurations.audience,
-          issuer: this.jwtConfigurations.issuer,
-          expiresIn: this.jwtConfigurations.accessTokenTtl,
-        },
-      );
-
-      return {
-        accessToken,
-      };
+      return await this.generateTokensProvider.generateTokens(user);
     } catch (error) {
       throw new RequestTimeoutException(error, {
         description: 'Could not compare the passwords',
