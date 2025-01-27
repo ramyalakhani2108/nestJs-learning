@@ -22,6 +22,7 @@ import environmentValidation from './config/environment.validation';
 // import { User } from './users/user.entity';
 // import { Tag } from './tags/tag.entity';
 // import { MetaOption } from './meta-options/meta-option.entity';
+import { MailModule } from './mail/mail.module';
 import { PaginationModule } from './common/pagination/pagination.module';
 import { JwtModule } from '@nestjs/jwt';
 import jwtConfig from './auth/config/jwt.config';
@@ -65,7 +66,8 @@ const ENV = process.env.NODE_ENV;
     MetaOptionsModule,
     PaginationModule,
     ConfigModule.forFeature(jwtConfig),
-    JwtModule.registerAsync(jwtConfig.asProvider()), //for registering jwt config
+    JwtModule.registerAsync(jwtConfig.asProvider()),
+    MailModule, //for registering jwt config
   ],
   controllers: [AppController],
   providers: [
