@@ -1,19 +1,14 @@
 import {
   BadRequestException,
-  forwardRef,
   HttpException,
-  Inject,
   HttpStatus,
   Injectable,
   RequestTimeoutException,
 } from '@nestjs/common';
 // import { GetUsersParamDto } from '../dtos/get-users-param.dto';
-import { AuthService } from 'src/auth/providers/auth.service';
-import { DataSource, Repository } from 'typeorm';
+import { Repository } from 'typeorm';
 import { User } from '../user.entity';
 import { InjectRepository } from '@nestjs/typeorm';
-import { ConfigType } from '@nestjs/config';
-import profileConfig from '../config/profile.config';
 import { UsersCreateManyProvider } from './users-create-many.provider';
 import { CreateManyUsersDto } from '../dtos/create-many-users.dto';
 import { CreateUserProvider } from './create-user.provider';
@@ -33,15 +28,15 @@ export class UsersService {
    * @param authService
    */
   constructor(
-    @Inject(forwardRef(() => AuthService))
-    private readonly authService: AuthService,
+    // @Inject(forwardRef(() => AuthService))
+    // private readonly authService: AuthService,
     @InjectRepository(User)
     private usersRepository: Repository<User>, // Corrected the typo here
 
-    @Inject(profileConfig.KEY) //need to remember this KEY word
-    private readonly profileConfiguration: ConfigType<typeof profileConfig>,
+    // @Inject(profileConfig.KEY) //need to remember this KEY word
+    // private readonly profileConfiguration: ConfigType<typeof profileConfig>,
 
-    private readonly dataSource: DataSource,
+    // private readonly dataSource: DataSource,
 
     private readonly usersCreateManyProvider: UsersCreateManyProvider,
 

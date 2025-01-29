@@ -11,7 +11,7 @@ export class MailService {
     private readonly mailerService: MailerService,
   ) {}
 
-  public async sendUserWelcomMail(user: User): Promise<void>{
+  public async sendUserWelcomeMail(user: User): Promise<void> {
     await this.mailerService.sendMail({
       to: user.email,
       from: 'On-boarding Team <no-reply@nestjs-blog.com>',

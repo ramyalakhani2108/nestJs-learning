@@ -16,7 +16,6 @@ describe('AppController (e2e)', () => {
   });
 
   it('/ (GET)', () => {
-    console.log(process.env.ENVIRONMENT);
     // return request(app.getHttpServer())
   });
 });

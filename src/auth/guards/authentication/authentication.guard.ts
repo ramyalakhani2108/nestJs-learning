@@ -45,14 +45,14 @@ export class AuthenticationGuard implements CanActivate {
     // loop through each guard use canActivate accordingly
     for (const instance of guards) {
       const canActivate = await Promise.resolve(
-        // Here the AccessToken Guard Will be fired and check if user has permissions to acces
+        // Here the AccessToken Guard Will be fired and check if user has permissions to access
         // Later Multiple AuthTypes can be used even if one of them returns true
-        // The user is Authorised to access the resource
+        // The user is Authorized to access the resource
         instance.canActivate(context),
       ).catch((err) => {
         error = err;
       });
-      //in this case each of the guards will fire the can activate method and retur a boolean value
+      //in this case each of the guards will fire the can activate method and return a boolean value
       if (canActivate) {
         return true; // if any of the guards return true then we can access the request
       }
