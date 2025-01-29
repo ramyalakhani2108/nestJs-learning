@@ -79,7 +79,7 @@ export class CreateUserProvider {
     }
 
     try {
-      await this.mailService.sendUserWelcomMail(newUser);
+      await this.mailService.sendUserWelcomeMail(newUser);
     } catch (error) {
       throw new RequestTimeoutException(error);
     }
