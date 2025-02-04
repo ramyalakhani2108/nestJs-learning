@@ -1,4 +1,9 @@
-import { Module } from '@nestjs/common';
+import {
+  MiddlewareConsumer,
+  Module,
+  NestModule,
+  RequestMethod,
+} from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 
@@ -30,12 +35,17 @@ import { APP_GUARD, APP_INTERCEPTOR } from '@nestjs/core';
 import { AccessTokenGuard } from './auth/guards/access-token/access-token.guard';
 import { AuthenticationGuard } from './auth/guards/authentication/authentication.guard';
 import { DataResponseInterceptor } from './common/interceptors/data-response/data-response.interceptor';
+import { RouteMiddlewareMiddleware } from './common/middlewares/route.middleware';
+import { ThrottlerModule } from '@nestjs/throttler';
 // import { Post } from './posts/post.entity';
 // import { MetaOption } from './meta-options/meta-option.entity';
 
 const ENV = process.env.NODE_ENV;
 @Module({
   imports: [
+    ThrottlerModule.forRoot({
+      throttlers: [{ limit: 4, ttl: 10 * 1000 }],
+    }),
     ConfigModule.forRoot({
       isGlobal: true,
       envFilePath: !ENV ? '.env' : `.env.${ENV}`,
@@ -51,7 +61,7 @@ const ENV = process.env.NODE_ENV;
       useFactory: (configService: ConfigService) => ({
         type: 'postgres',
         // entities: [User, Post, Tag, MetaOption],
-        synchronize: configService.get<boolean>('database.synchronize'),
+        synchronize: true,
         autoLoadEntities: configService.get<boolean>(
           'database.autoLoadEntities',
         ),
@@ -83,4 +93,14 @@ const ENV = process.env.NODE_ENV;
     AccessTokenGuard,
   ],
 })
-export class AppModule {}
+export class AppModule implements NestModule {
+  configure(consumer: MiddlewareConsumer) {
+    consumer
+      .apply(RouteMiddlewareMiddleware)
+      .exclude({
+        path: 'users',
+        method: RequestMethod.GET,
+      })
+      .forRoutes('*');
+  }
+}
