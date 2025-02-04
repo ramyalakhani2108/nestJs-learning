@@ -1,5 +1,6 @@
 import { INestApplication, ValidationPipe } from '@nestjs/common';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
+import { ExcfilFilter } from './excfil/excfil.filter';
 
 export function appCreate(app: INestApplication) {
   // using global pipes so we don't need to add this again and again
@@ -26,6 +27,7 @@ export function appCreate(app: INestApplication) {
   const document = SwaggerModule.createDocument(app, config);
   SwaggerModule.setup('api', app, document);
 
+  app.useGlobalFilters(new ExcfilFilter());
   //allowing cors
   app.enableCors();
 

@@ -81,7 +81,7 @@ export class Post {
   }) //cascade for all actions
   /* @JoinColumn() */
   metaOptions?: MetaOption;
-
+  
   @ManyToOne(() => User, (author) => author.posts, { eager: true })
   author: User;
 
